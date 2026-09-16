@@ -1,0 +1,12 @@
+<div class="bg-white p-3 rounded-lg shadow-lg">
+  <img [src]="product.image" [alt]="product.name" class="w-full object-cover mb-4 rounded-lg">
+  <a href="javascript:void(0)" class="text-lg font-semibold mb-2">{{ product.name }}</a>
+  <p class="my-2">{{ product.category }}</p>
+  <div class="flex items-center mb-4">
+    <span class="text-lg font-bold" [class.text-primary]="product.oldPrice" [class.text-gray-900]="!product.oldPrice">${{ product.price.toFixed(2) }}</span>
+    @if (product.oldPrice) {
+      <span class="text-sm line-through ml-2">${{ product.oldPrice.toFixed(2) }}</span>
+    }
+  </div>
+  <button class="bg-primary border border-transparent hover:bg-transparent hover:border-primary text-white hover:text-primary font-semibold py-2 px-4 rounded-full w-full">Add to Cart</button>
+</div>
