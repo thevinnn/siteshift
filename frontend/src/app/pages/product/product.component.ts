@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import { latestProducts } from '../../data/products';
@@ -6,11 +6,11 @@ import { latestProducts } from '../../data/products';
 type TabId = 'description' | 'additional-info' | 'size-shape' | 'reviews';
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [RouterLink, ProductCardComponent],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+    selector: 'app-product',
+    imports: [RouterLink, ProductCardComponent],
+    templateUrl: './product.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './product.component.css'
 })
 export class ProductComponent {
   latestProducts = latestProducts;

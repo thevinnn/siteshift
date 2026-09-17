@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ProductCardComponent } from '../../shared/product-card/product-card.component';
 import { shopProducts } from '../../data/products';
 
 @Component({
-  selector: 'app-shop',
-  standalone: true,
-  imports: [ProductCardComponent],
-  templateUrl: './shop.component.html',
-  styleUrl: './shop.component.css'
+    selector: 'app-shop',
+    imports: [ProductCardComponent],
+    templateUrl: './shop.component.html',
+    changeDetection: ChangeDetectionStrategy.Eager,
+    styleUrl: './shop.component.css'
 })
 export class ShopComponent {
   shopProducts = shopProducts;
