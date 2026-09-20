@@ -4,14 +4,14 @@
         <div class="flex flex-col md:flex-row gap-4">
             <div class="md:w-1/2 bg-white rounded-lg shadow-md p-4 md:p-10 md:m-10">
                 <h2 class="text-2xl font-semibold mb-4">Login</h2>
-                <form>
+                <form [formGroup]="loginForm" (ngSubmit)="submitLogin()">
                     <div class="mb-3">
                         <label for="login-email" class="block ">Email</label>
-                        <input type="email" id="login-email" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="email" id="login-email" formControlName="email" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div class="mb-3">
                         <label for="login-password" class="block ">Password</label>
-                        <input type="password" id="login-password" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="password" id="login-password" formControlName="password" class="w-full px-3 py-1 border  rounded-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div class="flex items-center mb-3">
                         <input type="checkbox" id="remember-me" class="mr-2">
@@ -20,25 +20,39 @@
                     <div class="mb-3">
                         <a href="javascript:void(0)" class="text-primary hover:underline">Forgot Password?</a>
                     </div>
-                    <button type="submit" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-full w-full">Login</button>
+                    @if (loginError()) {
+                        <p class="text-red-600 text-sm mb-3">{{ loginError() }}</p>
+                    }
+                    <button type="submit" [disabled]="loginSubmitting()" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-full w-full disabled:opacity-60">
+                        {{ loginSubmitting() ? 'Logging in...' : 'Login' }}
+                    </button>
                 </form>
             </div>
             <div class="md:w-1/2 bg-white rounded-lg shadow-md p-4 md:p-10 md:m-10">
                 <h2 class="text-2xl font-semibold mb-4">Register</h2>
-                <form>
+                <form [formGroup]="registerForm" (ngSubmit)="submitRegister()">
+                    <div class="mb-3">
+                        <label for="register-name" class="block ">Name</label>
+                        <input type="text" id="register-name" formControlName="name" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
+                    </div>
                     <div class="mb-3">
                         <label for="register-email" class="block ">Email</label>
-                        <input type="email" id="register-email" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="email" id="register-email" formControlName="email" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div class="mb-3">
                         <label for="register-password" class="block ">Password</label>
-                        <input type="password" id="register-password" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="password" id="register-password" formControlName="password" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
                     <div class="mb-3">
                         <label for="register-confirm-password" class="block ">Confirm Password</label>
-                        <input type="password" id="register-confirm-password" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
+                        <input type="password" id="register-confirm-password" formControlName="confirmPassword" class="w-full px-3 py-1 border focus:border-transparent rounded-full focus:outline-none focus:ring-2 focus:ring-primary" required>
                     </div>
-                    <button type="submit" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-full w-full">Register</button>
+                    @if (registerError()) {
+                        <p class="text-red-600 text-sm mb-3">{{ registerError() }}</p>
+                    }
+                    <button type="submit" [disabled]="registerSubmitting()" class="bg-primary text-white border border-primary hover:bg-transparent hover:text-primary py-2 px-3 rounded-full w-full disabled:opacity-60">
+                        {{ registerSubmitting() ? 'Creating account...' : 'Register' }}
+                    </button>
                 </form>
             </div>
         </div>
