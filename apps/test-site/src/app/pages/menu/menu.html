@@ -1,0 +1,17 @@
+<section class="section">
+  <div class="container">
+    <h1>Our menu</h1>
+    <p class="intro">Everything is baked fresh each morning. When it's gone, it's gone.</p>
+
+    @for (category of categories; track category.id) {
+      <section class="category">
+        <h2>{{ category.name }}</h2>
+        <div class="grid">
+          @for (item of category.items; track item.id) {
+            <app-menu-item-card [item]="item" />
+          }
+        </div>
+      </section>
+    }
+  </div>
+</section>

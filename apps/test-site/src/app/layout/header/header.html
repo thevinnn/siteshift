@@ -1,0 +1,19 @@
+<header class="header">
+  <div class="container header-inner">
+    <a routerLink="/" class="brand">Hearth &amp; Crumb</a>
+    <nav aria-label="Main">
+      <ul>
+        @for (link of navLinks; track link.id) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              >{{ link.label }}</a
+            >
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>

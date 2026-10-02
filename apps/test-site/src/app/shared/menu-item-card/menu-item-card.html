@@ -1,0 +1,16 @@
+<article class="card">
+  <img
+    [src]="item().image.src"
+    [alt]="item().image.alt"
+    [attr.width]="item().image.width"
+    [attr.height]="item().image.height"
+    loading="lazy"
+  />
+  <div class="body">
+    <div class="heading">
+      <h3>{{ item().name }}</h3>
+      <span class="price">{{ item().price }}</span>
+    </div>
+    <p>{{ item().description }}</p>
+  </div>
+</article>

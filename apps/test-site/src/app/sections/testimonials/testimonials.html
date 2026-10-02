@@ -1,0 +1,13 @@
+<section class="section testimonials">
+  <div class="container">
+    <h2 class="section-title">What our customers say</h2>
+    <div class="grid">
+      @for (testimonial of testimonials; track testimonial.id) {
+        <figure class="card">
+          <blockquote>{{ testimonial.quote }}</blockquote>
+          <figcaption>{{ testimonial.author }}</figcaption>
+        </figure>
+      }
+    </div>
+  </div>
+</section>

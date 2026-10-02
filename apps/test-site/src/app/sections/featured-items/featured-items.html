@@ -1,0 +1,11 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Customer favourites</h2>
+    <div class="grid">
+      @for (item of items; track item.id) {
+        <app-menu-item-card [item]="item" />
+      }
+    </div>
+    <p class="more"><a routerLink="/menu" class="btn">View full menu</a></p>
+  </div>
+</section>

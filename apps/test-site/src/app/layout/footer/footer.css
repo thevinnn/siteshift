@@ -1,0 +1,32 @@
+.footer {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding-block: var(--space-5);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.footer-name {
+  font-family: var(--font-family-heading);
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+}
+
+.footer a {
+  color: var(--color-accent);
+}
+
+.footer-legal {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+}
+
+p {
+  margin: 0 0 var(--space-2);
+}

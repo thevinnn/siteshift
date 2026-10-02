@@ -1,0 +1,16 @@
+.hero-inner {
+  display: grid;
+  gap: var(--space-5);
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+.hero-text p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: var(--radius);
+}

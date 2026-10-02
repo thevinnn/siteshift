@@ -1,0 +1,13 @@
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Why people love us</h2>
+    <div class="grid">
+      @for (feature of features; track feature.id) {
+        <div class="feature">
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      }
+    </div>
+  </div>
+</section>

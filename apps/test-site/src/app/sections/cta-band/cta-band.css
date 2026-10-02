@@ -1,0 +1,11 @@
+.cta {
+  background: var(--color-brand);
+  color: var(--color-brand-contrast);
+  padding-block: var(--space-6);
+  text-align: center;
+}
+
+.cta .btn {
+  background: var(--color-accent);
+  color: var(--color-text);
+}
